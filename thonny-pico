@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+set -euo pipefail
+repo_dir=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)
+export THONNY_USER_DIR="$repo_dir/.thonny"
+export PICO_BRIDGE_SOCKET="$repo_dir/.thonny/control.sock"
+export PYTHONPATH="$repo_dir/plugins${PYTHONPATH:+:$PYTHONPATH}"
+python3 "$repo_dir/tools/pico.py" configure
+cd "$repo_dir"
+exec thonny "$@"

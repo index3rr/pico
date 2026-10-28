@@ -1,1 +1,4 @@
 secrets.py
+.thonny/
+__pycache__/
+*.py[cod]
